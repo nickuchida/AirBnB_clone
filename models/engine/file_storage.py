@@ -22,7 +22,9 @@ class FileStorage:
 
     def reload(self):
         try:
-            with open(self.__file_path, 'w') as loads:
-                obj = json.loads(__file_path)
+            with open(self.__file_path, 'r') as my_json:
+                obj = json.loads(my_json)
+            for key, value in obj.items():
+                eval
         except:
             pass
