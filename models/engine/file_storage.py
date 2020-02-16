@@ -10,18 +10,18 @@ class FileStorage:
         return FileStorage.__objects
 
     def new(self, obj):
-        key = '{}.{}'.format(obj.__class__.__name__, obj.__class__.__id__)
+        key = '{}.{}'.format(obj.__class__.__name__, obj.id)
 
     def save(self):
         new_dict = {}
-        for key, value in __objects:
+        for key, value in self.__objects:
             new_dict[id] = value.to_dict()
-        with open(FileStorage.__path, 'W') as new_file:
+        with open(FileStorage.__file_path, 'w') as new_file:
             json.dump(new_dict, new_file)
 
     def reload(self):
         try:
-            with open(FileStorage.__path, 'W') as loads:
+            with open(FileStorage.__file_path, 'w') as loads:
                 obj = json.loads(__file_path)
         except:
             pass
