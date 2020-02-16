@@ -4,8 +4,7 @@ Module that defines all common attributes/methods
 """
 
 from datetime import datetime
-from models.engine.file_storage import FileStorage
-from FileStorage import storage
+import models
 import json
 import uuid
 
