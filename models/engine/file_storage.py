@@ -25,6 +25,6 @@ class FileStorage:
             with open(self.__file_path, 'r') as my_json:
                 obj = json.loads(my_json)
             for key, value in obj.items():
-                eval
+                self.__objects[key] = models.base_model.BaseModel(**value)
         except:
             pass
