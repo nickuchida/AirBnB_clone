@@ -8,7 +8,13 @@ from models.user import User
 
 class HBNBCommand(cmd.Cmd):
     '''class for command prompt module'''
-    HClasses = {"BaseModel": BaseModel}
+    HClasses = {"BaseModel": BaseModel,
+                "User": User,
+                "Place": Place,
+                "State": State,
+                "City": City,
+                "Amenity": Amenity,
+                "Review": Review}
     prompt = '(hbnb) '
 
     def empty(self):
