@@ -1,6 +1,9 @@
 #!/usr/bin/env python3
 import json
 import models
+from models.base_model import BaseModel
+from pathlib import Path
+
 
 class FileStorage:
     __file_path = "file.json"
@@ -23,8 +26,8 @@ class FileStorage:
     def reload(self):
         try:
             with open(self.__file_path, 'r') as my_json:
-                obj = json.loads(my_json)
-            for key, value in obj.items():
-                self.__objects[key] = models.base_model.BaseModel(**value)
+                self.__objects = json.load(my_json)
+            for key, value in self.__objects.items():
+                self.__objects[key] = BaseModel(**value)
         except:
             pass
