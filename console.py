@@ -30,8 +30,8 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_create(self, line):
-        if line and line in HBNBCommand.HClasses.keys():
-            k = HBNBCommand.HClasses[line]()
+        if line and line in self.HClasses.keys():
+            k = self.HClasses[line]()
             k.save()
             print(k.id)
         elif not line:
@@ -49,14 +49,33 @@ class HBNBCommand(cmd.Cmd):
             else:
                 print("** instance id missing **")
         elif len(tokens) == 2:
-            print("Tokens is 2")
-            print('-----')
             if tokens[0] in self.HClasses.keys():
                 string = "{}.{}".format(tokens[0], tokens[1])
                 if string in storage.all().keys():
                     print(storage.all()[string])
                 else:
                     print("** no instance found **")
+
+    def do_destroy(self, line):
+        tokens = line.split()
+        if len(tokens) == 0:
+            print("** class name missing **")
+        elif len(tokens) == 1:
+            if tokens[0] not in self.HClasses.keys():
+                print("** class doesn't exist **")
+            else:
+                print("** instance id missing **")
+        elif len(tokens) == 2:
+            if tokens[0] in self.HClasses.keys():
+                string = "{}.{}".format(tokens[0], tokens[1])
+                if string in storage.all().keys():
+                    del storage.all()[string]
+                    print("deleted")
+                else:
+                    print("** no instance found **")
+
+
+
 
 
 if __name__ == '__main__':
