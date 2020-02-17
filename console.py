@@ -3,6 +3,7 @@
 import cmd
 from models.base_model import BaseModel
 from models import storage
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -74,9 +75,20 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     print("** no instance found **")
 
+    def do_all(self, line=""):
+        if len(line) == 0:
+            for key, value in storage.all().items():
+                print(value)
+        if line in self.HClasses.keys():
+                print("Got here")
+                for key, value in storage.all().items():
+                    if line in key:
+                        print(value)
+        elif len(line) != 0 and line not in self.HClasses.keys():
+            print("** class doesn't exist **")
 
-
-
+    def do_update(self, line):
+        pass
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
