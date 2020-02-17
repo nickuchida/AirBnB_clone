@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''state module'''
-import models.base_model BaseModel
+from models.base_model import BaseModel
 
 class State:
     '''state of airbnb'''
