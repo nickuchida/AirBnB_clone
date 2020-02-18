@@ -33,15 +33,7 @@ class FileStorage:
         try:
             with open(self.__file_path, 'r') as my_json:
                 self.__objects = json.load(my_json)
-                my_dict = {
-                    'User': User,
-                    'Place': Place,
-                    'State': State,
-                    'City': City,
-                    'Amenity': Amenity,
-                    'Review': Review
-                    }
             for key, value in self.__objects.items():
-                self.__objects[key] = Classes(**value)
+                self.__objects[key] = BaseModel(**value)
         except:
             pass
