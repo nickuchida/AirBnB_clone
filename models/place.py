@@ -2,7 +2,7 @@
 '''place module'''
 from models.base_model import BaseModel
 
-class Place:
+class Place(BaseModel):
     '''info about airbnb'''
     city_id = ""
     user_id = ""

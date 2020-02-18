@@ -2,7 +2,7 @@
 '''city module'''
 from models.base_model import BaseModel
 
-class City:
+class City(BaseModel):
     '''city of airbnb'''
     state_id = ""
     name = ""

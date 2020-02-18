@@ -90,7 +90,6 @@ class HBNBCommand(cmd.Cmd):
             for key, value in storage.all().items():
                 print(value)
         if line in self.HClasses.keys():
-                print("Got here")
                 for key, value in storage.all().items():
                     if line in key:
                         print(value)

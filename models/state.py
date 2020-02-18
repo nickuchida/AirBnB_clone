@@ -2,6 +2,6 @@
 '''state module'''
 from models.base_model import BaseModel
 
-class State:
+class State(BaseModel):
     '''state of airbnb'''
     name = ""
