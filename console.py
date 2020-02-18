@@ -10,8 +10,9 @@ from models.city import City
 from models.amenity import Amenity
 from models.review import Review
 
+
 class HBNBCommand(cmd.Cmd):
-    '''class for command prompt module'''
+    '''Class for command prompt module'''
     HClasses = {"BaseModel": BaseModel,
                 "User": User,
                 "Place": Place,
@@ -22,14 +23,15 @@ class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
 
     def empty(self):
-        '''empy line'''
+        '''Empy line'''
         pass
 
     def help(self):
-        '''default help displays command options'''
+        '''Default help displays command options'''
         print('help commands')
 
     def emptyline(self):
+        '''Prevents previous line from being reprinted'''
         pass
 
     def do_EOF(self, line):
@@ -37,10 +39,11 @@ class HBNBCommand(cmd.Cmd):
         return True
 
     def do_quit(self, line):
-        '''quit to exit program'''
+        '''Quit command to exit the program'''
         return True
 
     def do_create(self, line):
+        '''Creates a new BaseModel Instance'''
         if line and line in self.HClasses.keys():
             k = self.HClasses[line]()
             k.save()
@@ -51,6 +54,10 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_show(self, line):
+        '''
+        Prints the string representation
+        of an instance based on the class name and id
+        '''
         tokens = line.split()
         if len(tokens) == 0:
             print("** class name missing **")
@@ -68,6 +75,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
 
     def do_destroy(self, line):
+        '''Deletes an instance based on the class name and id'''
         tokens = line.split()
         if len(tokens) == 0:
             print("** class name missing **")
@@ -81,11 +89,14 @@ class HBNBCommand(cmd.Cmd):
                 string = "{}.{}".format(tokens[0], tokens[1])
                 if string in storage.all().keys():
                     del storage.all()[string]
-                    print("deleted")
                 else:
                     print("** no instance found **")
 
     def do_all(self, line=""):
+        '''
+        Prints all string representation of all instances
+        based or not on the class name
+        '''
         if len(line) == 0:
             for key, value in storage.all().items():
                 print(value)
@@ -97,6 +108,10 @@ class HBNBCommand(cmd.Cmd):
             print("** class doesn't exist **")
 
     def do_update(self, line):
+        '''
+        Updates an instance based on the class name and
+        id by adding or updating attribute
+        '''
         pass
 
 if __name__ == '__main__':

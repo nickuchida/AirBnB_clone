@@ -1,6 +1,7 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 '''amenity module'''
 from models.base_model import BaseModel
+
 
 class Amenity:
     '''amenities of airbnb'''
