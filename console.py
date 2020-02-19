@@ -124,10 +124,11 @@ class HBNBCommand(cmd.Cmd):
                 print("** value missing **")
         else:
             c_name = tokens[0]
-            if c_name not in HBNBCommand.HClasses:
+            if c_name not in HBNBCommand.HClasses.keys():
                 print("** class doesn't exist **")
             _inst = tokens[1]
-            if _inst not in self.obj or self.obj[_inst].__class__.__name__ != c_name:
+            val = self.obj[_inst].__class__.__name__
+            if _inst not in self.obj or val != c_name:
                 print("** no instance found **")
             att = tokens[2]
             att_val = tokens[3]
