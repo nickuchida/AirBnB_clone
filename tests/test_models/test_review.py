@@ -4,7 +4,7 @@
 import unittest
 from models.review import Review
 
-class TestReview(unittest.Testcase):
+class TestReview(unittest.TestCase):
     '''tests review class'''
 
 def test_empty(self):
