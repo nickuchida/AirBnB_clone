@@ -58,5 +58,22 @@ class TestBase(unittest.TestCase):
         str1 = "[BaseModel] ({}) {}".format(self.a.id, self.a.__dict__)
         self.assertEqual(str1, str(self.a))
 
+    def test_save(self):
+        """Tests if save works"""
+        self.a.save()
+        self.assertFalse(self.a.created_at == self.a.updated_at)
+        self.assertNotEqual(self.a.created_at, self.a.updated_at)
+
+    def test_to_dict(self):
+        da = self.a.to_dict()
+        self.assertEqual(self.a.__class__.__name__, "BaseModel")
+        self.assertEqual(type(da), dict)
+        self.assertIsInstance(da["created_at"], str)
+        self.assertTrue("created_at" in self.a.to_dict(), True)
+        self.assertIsInstance(da["updated_at"], str)
+        self.assertTrue("updated_at" in self.a.to_dict(), True)
+
+
+
 if __name__ == '__main__':
     unittest.main()

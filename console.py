@@ -112,7 +112,28 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the class name and
         id by adding or updating attribute
         '''
-        pass
+        tokens = line.split(" ")
+        if len(tokens) < 4:
+            if len(tokens) == 0:
+                print("** class name missing **")
+            if len(tokens) == 1:
+                print("** instance id missing **")
+            if len(tokens) == 2:
+                print("** value missing **")
+            if len(tokens) == 3:
+                print("** value missing **")
+        else:
+            c_name = tokens[0]
+            if c_name not in HBNBCommand.HClasses:
+                print("** class doesn't exist **")
+            _inst = tokens[1]
+            if _inst not in self.obj or self.obj[_inst].__class__.__name__ != c_name:
+                print("** no instance found **")
+            att = tokens[2]
+            att_val = tokens[3]
+            (self.obj[_inst]).__dict__[att] = att_val
+            models.storage.save()
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
