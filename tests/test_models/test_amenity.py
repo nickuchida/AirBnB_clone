@@ -5,6 +5,7 @@ from datetime import datetime
 from models.amenity import Amenity
 from base_model import BaseModel
 
+
 class TestAmenity(unittest.TestCase):
     '''tests amenity class'''
 

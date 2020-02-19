@@ -5,6 +5,7 @@ from models.user import User
 from models.base_model import BaseModel
 from datetime import datetime
 
+
 class TestUser(unittest.TestCase):
     def setup(self):
         '''sets up test'''
@@ -17,17 +18,17 @@ class TestUser(unittest.TestCase):
 
     def testempty(self):
         '''tests empty user'''
-        self.assertEqual(self.a.password = '')
-        self.assertEqual(self.a.first_name = '')
-        self.assertEqual(self.a.last_name = '')
-        self.assertEqual(self.a.email = '')
+        self.assertEqual(self.a.password='')
+        self.assertEqual(self.a.first_name='')
+        self.assertEqual(self.a.last_name='')
+        self.assertEqual(self.a.email='')
 
     def testequal(self):
         '''tests attributes of user'''
-        self.assertEqual(self.b.first_name = 'Air')
-        self.assertEqual(self.b.last_name = 'BnB')
-        self.assertEqual(self.b.password = 'airbnb')
-        self.assertEqual(self.b.email = 'airbnb@gmail.com')
+        self.assertEqual(self.b.first_name='Air')
+        self.assertEqual(self.b.last_name='BnB')
+        self.assertEqual(self.b.password='airbnb')
+        self.assertEqual(self.b.email='airbnb@gmail.com')
 
     def testInDict(self):
         '''tests if keys are in dictionary'''
