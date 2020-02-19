@@ -41,7 +41,9 @@ class TestBase(unittest.TestCase):
     def test_attributes(self):
         """Tests to make sure assigning values works"""
         self.assertTrue(hasattr(self.a, "id"))
+        self.assertEqual(self.a.id == "", False)
         self.assertTrue(hasattr(self.a, "__class__"))
+        self.assertTrue(hasattr(self.a, "__dict__"))
         self.assertTrue(hasattr(self.a, "created_at"))
         self.assertTrue(hasattr(self.a, "updated_at"))
         self.assertTrue(hasattr(self.a, "name"))
@@ -66,12 +68,15 @@ class TestBase(unittest.TestCase):
 
     def test_to_dict(self):
         da = self.a.to_dict()
+        e = BaseModel()
+        de = e.to_dict()
         self.assertEqual(self.a.__class__.__name__, "BaseModel")
         self.assertEqual(type(da), dict)
         self.assertIsInstance(da["created_at"], str)
         self.assertTrue("created_at" in self.a.to_dict(), True)
         self.assertIsInstance(da["updated_at"], str)
         self.assertTrue("updated_at" in self.a.to_dict(), True)
+        self.assertFalse(da == de)
 
 
 
