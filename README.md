@@ -15,25 +15,7 @@ What you should learn from this project:
 * How to handle named arguments in a function
 
 ---
-
-### [0. README, AUTHORS](./README.md)
-* 
-Write a README.md:
-
-
-description of the project
-description of the command interpreter:
-
-
-how to start it
-how to use it
-examples
-
-
-You should have an AUTHORS file at the root of your repository, listing all individuals having contributed content to the repository. For format, reference Docker’s AUTHORS page
-Also, we strongly encourage you to use branches and pull requests on Github - it will help you as team to organize your work
-
-
+#### The following links will take you to the code that implements each of the following objectives of the project.
 
 ### [1. Be PEP8 compliant!](./tests/)
 * Write beautiful code that passes the PEP8 checks.
@@ -48,11 +30,11 @@ Also, we strongly encourage you to use branches and pull requests on Github - it
 
 
 ### [4. Create BaseModel from dictionary](./models/engine/file_storage.py)
-* Previously we created a method to generate a dictionary representation of an instance (method to_dict()).
+* Previously we created a method to generate a dictionary representation of an instance (method to_dict()). Now it’s time to re-create an instance with this dictionary representation.
 
 
 ### [5. Store first object](./console.py)
-* Now we can recreate a BaseModel from another one by using a dictionary representation:
+* Recreate a BaseModel from another one by using a dictionary representation:
 
 
 ### [6. Console 0.0.1](./console.py)
@@ -70,9 +52,30 @@ Also, we strongly encourage you to use branches and pull requests on Github - it
 ### [9. More classes!](./console.py)
 * Write all those classes that inherit from BaseModel:
 
+### How to start and exit the console
+* Run console.py as an executable "./console.py"
+  * Ex: **$ ./console.py**
+* Enter "help" to view command options
+  * Ex: **$ help**
+* Enter "EOF" or "quit" to exit the console
+  * Ex: **$ EOF**
+  * Ex: **$ quit**
 
+### Commands in the console:
+* **create**: Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id. 
+  * Ex: **$ create BaseModel**
+  * Output: **a09349a5-66d8-42b2-bcb3-c6828393abff**
+* **show**: Prints the string representation of an instance based on the class name and id. 
+  * Ex: **$ show BaseModel a09349a5-66d8-42b2-bcb3-c6828393abff**
+  * Output: **[BaseModel] (a09349a5-66d8-42b2-bcb3-c6828393abff) {'created_at': datetime.datetime(2020, 2, 19, 22, 34, 4, 624161), 'id': 'a09349a5-66d8-42b2-bcb3-c6828393abff', 'updated_at': datetime.datetime(2020, 2, 19, 22, 34, 4, 624194)}**
+* **destroy**: Deletes an instance based on the class name and id (save the change into the JSON file). 
+  * Ex: **$ destroy BaseModel 1234-1234-1234**
+* **all**: Prints all string representation of all instances based or not on the class name. 
+  * Ex: **$ all BaseModel or $ all**
+* **update**: Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file). 
+  * Ex: **$ update BaseModel 1234-1234-1234 email "airbnb@holbertonschool.com"**
 ---
 
 ## Author
 * **Nick Uchida** - [nickuchida](https://github.com/nickuchida)
-* ** Christine Pang** - [christinepang1](https://github/com/christinepang1)
+* **Christine Pang** - [christinepang1](https://github/com/christinepang1)
