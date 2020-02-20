@@ -7,6 +7,7 @@ from models import base_model
 from models.base_model import BaseModel
 from datetime import datetime
 
+
 class TestBase(unittest.TestCase):
     """Testing Class BaseModel"""
 
@@ -77,7 +78,6 @@ class TestBase(unittest.TestCase):
         self.assertIsInstance(da["updated_at"], str)
         self.assertTrue("updated_at" in self.a.to_dict(), True)
         self.assertFalse(da == de)
-
 
 
 if __name__ == '__main__':
