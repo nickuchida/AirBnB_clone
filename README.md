@@ -78,32 +78,32 @@ AirBnB_clone$:
 * Write all those classes that inherit from BaseModel:
   * user
     * email
-      * password
-      	* first_name
-	  * last_name
-	  * state
-	    * name
-	    * city
-	      * state_id
-	      	* name
-		* amenity
-		  * name
-		  * place
-		    * city_id
-		      * user_id
-		      	* name
-			  * description
-			    * number_rooms
-			      * number_bathrooms
-			      	* max_guest
-				  * price_by_night
-				    * latitude 
-				      * longitude
-				      	* amenity_ids
-					* review
-					  * place_id
-					    * user_id
-					      * text
+    * password
+    * first_name
+    * last_name
+  * state   
+    * name
+  * city
+    * state_id 
+    * name	
+  * amenity
+    * name	
+    * place
+    * city_id
+    * user_id	
+    * name	
+    * description
+    * number_rooms	
+    * number_bathrooms	
+    * max_guest	
+    * price_by_night	
+    * latitude 	
+    * longitude	
+    * amenity_ids	
+  * review	
+    * place_id	
+    * user_id	
+    * text
 
 ### How to start and exit the console
 * Run console.py as an executable "./console.py"
