@@ -4,8 +4,8 @@ Module that defines all common attributes/methods
 """
 
 from datetime import datetime
-import models
 import json
+import models
 import uuid
 
 

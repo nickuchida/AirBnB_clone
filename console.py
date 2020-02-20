@@ -112,28 +112,35 @@ class HBNBCommand(cmd.Cmd):
         Updates an instance based on the class name and
         id by adding or updating attribute
         '''
+        mydict = storage.all()
+        vclasses = ['BaseModel', 'Place', 'User', 'State',
+                    'City', 'Amenity', 'Review']
+
         tokens = line.split(" ")
-        if len(tokens) < 4:
-            if len(tokens) == 0:
-                print("** class name missing **")
-            if len(tokens) == 1:
-                print("** instance id missing **")
-            if len(tokens) == 2:
-                print("** value missing **")
-            if len(tokens) == 3:
-                print("** value missing **")
-        else:
-            c_name = tokens[0]
-            if c_name not in HBNBCommand.HClasses.keys():
-                print("** class doesn't exist **")
-            _inst = tokens[1]
-            val = self.obj[_inst].__class__.__name__
-            if _inst not in self.obj or val != c_name:
-                print("** no instance found **")
-            att = tokens[2]
-            att_val = tokens[3]
-            (self.obj[_inst]).__dict__[att] = att_val
-            models.storage.save()
+
+        if len(tokens) == 0:
+            print("** class name missing **")
+            return
+        if tokens[0] not in vclasses:
+            print("** class doesn't exist **")
+            return
+        if tokens[0] in vclasses and len(tokens) < 2:
+            print("** instance id missing **")
+            return
+        if "{}.{}".format(tokens[0], tokens[1]) not in mydict.keys():
+            print("** no instance found **")
+            return
+        if len(tokens) == 2:
+            print("** attribute name missing **")
+            return
+        if len(tokens) == 3:
+            print("** value missing **")
+            return
+        if tokens[2] not in ["id", "updated_at", "created_at"]:
+            obj = mydict[name]
+            obj.__dict__[tokens[2]] = token[3]
+            obj.updated_at = datetime.now()
+            storage.save()
 
 
 if __name__ == '__main__':

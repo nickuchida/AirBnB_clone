@@ -85,12 +85,21 @@ class TestFileStorage(unittest.TestCase):
         f = FileStorage()
         fd = f.all()
         self.assertIsInstance(fd, dict)
+        self.assertIsNotNone(fd)
         self.assertEqual(fd, f.all())
         self.assertEqual(f._FileStorage__objects, fd)
+        self.assertIs(fd, f._FileStorage__objects)
 
     def test_new(self):
         """Tests the instance method of new"""
-        pass
+        f = FileStorage()
+        fd = f.all()
+        n = User()
+        n.id = 1234
+        n.name = "Nick"
+        f.new(n)
+        k = n.__class__.__name__ + "." + str(n.id)
+        self.assertIsNotNone(fd[k])
 
     def test_file_path(self):
         f = FileStorage()
@@ -98,4 +107,5 @@ class TestFileStorage(unittest.TestCase):
         self.assertEqual(f._FileStorage__file_path, 'file.json')
         self.assertIsInstance(f._FileStorage__file_path, str)
         self.assertIsInstance(f._FileStorage__objects, dict)
+        self.assertEqual(f._FileStorage__objects, fd)
         self.assertIsInstance(f, FileStorage)

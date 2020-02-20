@@ -7,28 +7,28 @@ from datetime import datetime
 
 
 class TestUser(unittest.TestCase):
-    def setup(self):
+    def setUp(self):
         '''sets up test'''
         self.a = User()
-        self.a.save()
         self.b = User()
         self.b.first_name = 'Air'
         self.b.last_name = 'BnB'
         self.b.email = 'airbnb@gmail.com'
+        self.b.password = '123'
 
     def testempty(self):
         '''tests empty user'''
-        self.assertEqual(self.a.password='')
-        self.assertEqual(self.a.first_name='')
-        self.assertEqual(self.a.last_name='')
-        self.assertEqual(self.a.email='')
+        self.assertEqual(self.a.password, '')
+        self.assertEqual(self.a.first_name, '')
+        self.assertEqual(self.a.last_name, '')
+        self.assertEqual(self.a.email, '')
 
     def testequal(self):
         '''tests attributes of user'''
-        self.assertEqual(self.b.first_name='Air')
-        self.assertEqual(self.b.last_name='BnB')
-        self.assertEqual(self.b.password='airbnb')
-        self.assertEqual(self.b.email='airbnb@gmail.com')
+        self.assertEqual(self.b.first_name, 'Air')
+        self.assertEqual(self.b.last_name, 'BnB')
+        self.assertEqual(self.b.password, '123')
+        self.assertEqual(self.b.email, 'airbnb@gmail.com')
 
     def testInDict(self):
         '''tests if keys are in dictionary'''
@@ -36,9 +36,7 @@ class TestUser(unittest.TestCase):
         self.assertIn('last_name', self.b.__dict__.keys())
         self.assertIn('password', self.b.__dict__.keys())
         self.assertIn('email', self.b.__dict__.keys())
-        self.assertNotIn('last_name', self.b.__dict__.keys())
-        self.assertNotIn('password', self.b.__dict__.keys())
-        self.assertNotIn('email', self.b.__dict__.keys())
+        self.assertIn('last_name', self.b.__dict__.keys())
 
     def test_type(self):
         """Tests types"""
