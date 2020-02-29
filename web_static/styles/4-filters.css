@@ -17,6 +17,7 @@
     right: 30px;
     float: right;
     position: relative;
+    top: 11px;
 }
 
 .filters button:hover {
