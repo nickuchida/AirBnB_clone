@@ -1,4 +1,4 @@
-.places {
+places {
   margin: 20px;
 }
 
@@ -14,8 +14,8 @@
   border: 1px solid #FF5A5F;
   border-radius: 4px;
   text-align: center;
-  display: inline-block;
-  height: 369px;
+  display: inline-table;
+  height: 360px;
 }
 
 .places h2 {
@@ -47,8 +47,9 @@
   border-top: 1px solid #DDDDDD;
   border-bottom: 1px solid #DDDDDD;
   display: flex;
-  align-items: center;
   justify-content: center;
+  padding: 20px;
+  margin: 10px;
 }
 
 .guesticon {
@@ -73,6 +74,9 @@
   background-image: url(../images/icon_bath.png);
 }
 
+.description, .user {
+  text-align: left;
+}
 .max_guest {
   width: 100px;
 }
