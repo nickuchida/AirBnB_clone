@@ -1,7 +1,8 @@
 # 0x01. AirBnB clone - Web static
 
-This HTML and CSS code is by Nick Uchida for the front end portion of the AirBnB clone.
+This HTML and CSS code is for the front end portion of the AirBnB clone.
 By hovering over the navbar, it will expand and show you a full list of locations and amenities.
+Each "HBnB" lists the number of bedrooms, bathrooms, and how many guests it can host. Each also includes a description of the location along with price, amenities, and nearby attractions. 
 
 ## Description
 What you should learn from this project:
@@ -57,21 +58,6 @@ What you should learn from this project:
 ### [8. More details](./8-index.html)
 * Write an HTML page that displays a header, a footer, a filter box (dropdown list) and the result of the search.
 
-
-### [9. Full details](./100-index.html)
-* Write an HTML page that displays a header, footer, a filters box with dropdown and results.
-
-
-### [10. Flex](./101-index.html)
-* Improve the Places section by using Flexible boxes for all Place articles
-
-
-### [11. Responsive design](./102-index.html)
-* Improve the page by adding responsive design to display correctly in mobile or small screens.
-
-
-### [12. Accessibility](./103-index.html)
-* Improve the page by adding Accessibility support
 
 ---
 
